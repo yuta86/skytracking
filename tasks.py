@@ -96,20 +96,13 @@ def get_calc_operation(param_a, param_b=0, operation=0):
         remote_addr = str(request.remote_addr)
         user_agent = str(request.headers.get('User-Agent'))
 
-        print('96')
-
         calc = Calculate(param_a=param_a, param_b=param_b, operation=operation, result=result, status=status,
                          remote_addr=remote_addr, user_agent=user_agent)
-        print('98')
-        db.session.add(calc)
+        session.add(calc)
         db.session.commit()
-        print('101')
-        print("result['result']====" + str(result))
         jcalc = {"result": result}
-        print('104')
     except:
         print("ERROR in create_calc")
-
     return resp(200, {"get_calc_operation:": jcalc})
 
 
