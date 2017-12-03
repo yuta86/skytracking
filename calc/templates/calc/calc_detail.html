@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ calc.id }}
+{% endblock %}
+
+{% block content_title %}
+    <p> ID = {{ calc.id }}</p>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <p> Расчёт </p>
+        <p><b>id =</b> {{ calc.id }} </p>
+        <p><b>Параметр А =</b> {{ calc.param_a }}  </p>
+        <p><b>Параметр В =</b> {{ calc.param_b }}  </p>
+        <p><b>Операция =</b> {{ calc.operation }}  </p>
+        <p><b>Результат =</b> {{ calc.result }}  </p>
+        <p><b>Дата создания =</b> {{ calc.created }} </p>
+        <p><b>Статус =</b> {{ calc.status }} </p>
+        <p><b>IP =</b> {{ calc.remote_addr }}</p>
+        <p><b>Инф. о браузере = </b> {{ calc.user_agent }}</p>
+    </div>
+
+{% endblock %}

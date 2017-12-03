@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Создание расчёта
+{% endblock %}
+
+{% block content_title %}
+    <p> Новый расчёт </p>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-3">
+            <form action="{{ url_for('calc.create_calc') }}" method="POST">
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label(class='form-label') }}
+                        {{ field(class='form-control') }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Рассчитать</button>
+            </form>
+        </div>
+        <div>
+            <div class="col-md-9">
+                <h3><p> В поле операция следует вводить следующие номера:</p></h3>
+                <p><b>1</b> Сложение. </p>
+                <p><b>2</b> Вычитание. </p>
+                <p><b>3</b> Умножение. </p>
+                <p><b>4</b> Деление. </p>
+                <p><b>5</b> Возведение в степень. </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
